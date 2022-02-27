@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+
+// COLORS
+
+$clr-cyan: hsl(179, 62%, 43%);
+$clr-cyan-light: #4abebd;
+$clr-bright-yellow: hsl(71, 73%, 54%);
+
+$clr-light-gray: hsl(204, 43%, 93%);
+$clr-grayish-blue: hsl(218, 22%, 67%);
+$clr-white: #fff;
+// Mobile: 375px
+// Desktop: 1440px
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+
+  font-size: 1rem;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Karla", sans-serif;
+  background: $clr-light-gray;
+  position: relative;
+  display: grid;
+  place-content: center;
+  color: $clr-white;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  margin: 2rem;
+  max-width: 40rem; //640px
+  display: grid;
+  grid-template-columns: repeat(2, minmax(20rem, 1fr));
+  grid-template-rows: 1fr auto;
+
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: 0 0 10rem rgba(black, 0.2);
+}
+.tagline {
+  color: $clr-bright-yellow;
+}
+.card {
+  padding: 2rem;
+
+  &--join {
+    background: $clr-white;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+  }
+  &--subscription {
+    background: $clr-cyan;
+    display: grid;
+    grid-row: 2 / 3;
+    grid-column: 1 / span 1;
+  }
+  &--why {
+    background: $clr-cyan-light;
+  }
+
+  &__heading {
+    &--primary {
+      color: $clr-cyan;
+      margin-bottom: 1.5rem;
+    }
+    &--secondary {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.125rem;
+    }
+  }
+  &__paragraph {
+    color: $clr-grayish-blue;
+    line-height: 1.7;
+  }
+
+  &__price {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    &--text {
+      display: inline-block;
+      padding-left: 0.5rem;
+      font-size: 1rem;
+      font-weight: 400;
+      opacity: 0.5;
+      transform: translateY(-0.3rem);
+    }
+  }
+
+  &__text {
+    margin-bottom: 2rem;
+  }
+
+  &__list {
+    &--item {
+      margin-bottom: 0.2rem;
+    }
+  }
+}
+
+.btn {
+  text-decoration: none;
+  color: $clr-white;
+  text-transform: capitalize;
+  font-weight: 700;
+  background: $clr-bright-yellow;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 2rem rgba(black, 0.1);
+
+  transition: all 0.25s;
+
+  &:hover,
+  &:focus {
+    background: darken($clr-bright-yellow, 10);
+    transform: translateY(-3px);
+  }
+  &:focus {
+    outline: 2px solid black;
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// 704px
+@media only screen and (max-width: 44rem) {
+  html {
+    font-size: 0.84375rem;
+  }
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+}
